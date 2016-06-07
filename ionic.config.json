@@ -2,5 +2,9 @@
   "name": "ionic2-propertycross-impl",
   "app_id": "",
   "v2": true,
-  "typescript": true
+  "typescript": true,
+  "proxies": [{
+    "path": "/api",
+    "proxyUrl": "http://api.nestoria.co.uk/api"
+  }]
 }
