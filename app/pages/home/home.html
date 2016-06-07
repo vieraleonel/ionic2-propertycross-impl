@@ -1,16 +1,44 @@
 <ion-navbar *navbar>
   <ion-title>
-    Home
+    PropertyCross
   </ion-title>
+
+  <ion-buttons end>
+    <button>
+      Faves
+    </button>
+  </ion-buttons>
 </ion-navbar>
 
 <ion-content class="home">
-  <ion-card>
-    <ion-card-header>
-      Card Header
-    </ion-card-header>
-    <ion-card-content>
-      Hello World
-    </ion-card-content>
-  </ion-card>
+  <ion-row padding>
+      <p>Use the form below to search for houses to buy. You can search by place-name, postcode, or click 'My location', to search in your current location!</p>
+  </ion-row>
+  
+  <ion-list>
+    <ion-item>
+      <ion-label floating>Search</ion-label>
+      <ion-input [(ngModel)]="searchTerm" type="text"></ion-input>
+    </ion-item>
+  </ion-list>
+
+  <ion-row>
+    <ion-col width-50>
+      <button secondary block (click)="getPropertiesByTerm()">Go</button>
+    </ion-col>
+    <ion-col width-50>
+      <button block>My Location</button>
+    </ion-col>
+  </ion-row>
+
+  <ion-list>
+    <ion-list-header>
+      Recent searches:
+    </ion-list-header>
+    <ion-item>
+        london
+        <ion-badge item-right>3056</ion-badge>
+    </ion-item>
+  </ion-list>
+
 </ion-content>
