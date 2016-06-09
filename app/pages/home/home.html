@@ -35,9 +35,9 @@
     <ion-list-header>
       Recent searches:
     </ion-list-header>
-    <ion-item>
-        london
-        <ion-badge item-right>3056</ion-badge>
+    <ion-item *ngFor="let search of recentSearches">
+        {{ search.term }}
+        <ion-badge item-right>{{ search.results }}</ion-badge>
     </ion-item>
   </ion-list>
 

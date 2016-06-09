@@ -3,9 +3,12 @@ import {Platform, ionicBootstrap} from 'ionic-angular';
 import {StatusBar} from 'ionic-native';
 import {HomePage} from './pages/home/home';
 
+import {Nestoria} from './providers/nestoria/nestoria';
+import {RecentSearchesStorage} from './providers/recent-searches-storage/recent-searches-storage';
 
 @Component({
-  template: '<ion-nav [root]="rootPage"></ion-nav>'
+  template: '<ion-nav [root]="rootPage"></ion-nav>',
+  providers: [Nestoria]
 })
 export class MyApp {
   rootPage: any = HomePage;
