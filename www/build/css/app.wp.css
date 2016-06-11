@@ -9106,3 +9106,6 @@ body {
 
 .property-details .property-image {
   width: 100%; }
+
+.property-details .btn-pink {
+  background-color: #E91E63; }

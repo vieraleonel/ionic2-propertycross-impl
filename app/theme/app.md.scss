@@ -29,3 +29,13 @@
 // App Material Design Only Sass
 // --------------------------------------------------
 // CSS that should only apply to the Material Design app
+
+.toolbar {
+    * {
+        color: white;
+    }
+
+    .toolbar-background {
+        background-color: map-get($colors, 'primary');
+    }
+}

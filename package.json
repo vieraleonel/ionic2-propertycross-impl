@@ -46,7 +46,7 @@
     }
   ],
   "scripts": {
-    "gulp": "gulp"
+    "build": "gulp build"
   },
   "name": "ionic2-propertycross-impl",
   "description": "ionic2-propertycross-impl: An Ionic project"
