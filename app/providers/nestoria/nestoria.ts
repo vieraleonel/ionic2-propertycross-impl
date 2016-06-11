@@ -13,7 +13,7 @@ export class Nestoria {
   constructor(public http: Http) {}
 
   getProperties(searchTerm, page = 1) {
-    let repos = this.http.get(`/api?country=uk&pretty=1&action=search_listings&encoding=json&listing_type=buy&page=${page}&place_name=${searchTerm}`);
+    let repos = this.http.get(`http://api.nestoria.co.uk/api?country=uk&pretty=1&action=search_listings&encoding=json&listing_type=buy&page=${page}&place_name=${searchTerm}`);
     return repos;
   }
 }
