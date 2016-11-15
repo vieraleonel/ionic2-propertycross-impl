@@ -1,0 +1,25 @@
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-title>Favourites</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content>
+
+  <ion-row padding *ngIf="faves.length === 0">
+    <p>You have not added any properties to your favourites</p>
+  </ion-row>
+
+  <ion-list>
+    <ion-item *ngFor="let property of faves;" (click)="goToPropertyDetails(property)">
+      <ion-thumbnail item-left>
+        <img src="{{ property.thumb_url }}">
+      </ion-thumbnail>
+      <h1>{{ property.price_formatted }}</h1>
+      <p>{{ property.title }}</p>
+    </ion-item>
+  </ion-list>
+
+</ion-content>

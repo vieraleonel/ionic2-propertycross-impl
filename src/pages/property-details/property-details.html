@@ -1,0 +1,47 @@
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-title>Property Details</ion-title>
+    <ion-buttons end *ngIf="platform.is('ios')">
+      <button ion-button (click)="toggleFav()">
+        <ion-icon name="star" [isActive]="property.isFav"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content>
+
+  <ion-card>
+    <ion-item>
+      <h1>{{property.price_formatted}}</h1>
+      <p>{{property.title}}</p>
+    </ion-item>
+
+    <img src="{{property.img_url}}"/>
+
+    <ion-list>
+      <ion-item>
+        <h3>Bedrooms</h3>
+        <span item-right>{{property.bedroom_number}}</span>
+      </ion-item>
+      <ion-item>
+        <h3>Bathrooms</h3>
+        <span item-right>{{property.bathroom_number}}</span>
+      </ion-item>
+    </ion-list>
+
+    <ion-card-content>
+      <p>{{ property.summary }}</p>
+    </ion-card-content>
+
+  </ion-card>
+
+  <ion-fab right bottom *ngIf="platform.is('android')">
+    <button ion-fab color="pink" (click)="toggleFav()">
+      <ion-icon name="star" *ngIf="property.isFav"></ion-icon>
+      <ion-icon name="star-outline" *ngIf="!property.isFav"></ion-icon>
+    </button>
+  </ion-fab>
+</ion-content>

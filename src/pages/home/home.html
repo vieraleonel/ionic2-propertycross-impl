@@ -1,0 +1,57 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>
+      PropertyCross
+    </ion-title>
+
+    <ion-buttons end>
+      <button ion-button (click)="goToFaves()">Faves</button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-row padding>
+    <p>Use the form below to search for houses to buy. You can search by place-name, postcode, or click 'My location', to search in your current location!</p>
+  </ion-row>
+
+  <ion-list>
+    <ion-item>
+      <ion-label floating>Search</ion-label>
+      <ion-input [(ngModel)]="searchTerm" type="text"></ion-input>
+    </ion-item>
+  </ion-list>
+
+  <ion-row>
+    <ion-col width-50>
+      <button ion-button color="secondary" block (click)="searchByTerm()">Go</button>
+    </ion-col>
+    <ion-col width-50>
+      <button ion-button block (click)="searchByPosition()">My Location</button>
+    </ion-col>
+  </ion-row>
+
+  <ion-row padding *ngIf="state === 0">
+    <p color="danger">{{errorMessage}}</p>
+  </ion-row>
+
+  <ion-list *ngIf="state === 1">
+    <ion-list-header>
+      Recent searches:
+    </ion-list-header>
+    <ion-item *ngFor="let search of recentSearches" (click)="doSearchWith(search.term)">
+        {{ search.term }}
+        <ion-badge item-right>{{ search.results }}</ion-badge>
+    </ion-item>
+  </ion-list>
+
+  <ion-list *ngIf="state === 2">
+    <ion-list-header>
+      Please select a location below:
+    </ion-list-header>
+    <ion-item *ngFor="let location of locations" (click)="doSearchWith(location.place_name)">
+        {{ location.title }}
+    </ion-item>
+  </ion-list>
+
+</ion-content>

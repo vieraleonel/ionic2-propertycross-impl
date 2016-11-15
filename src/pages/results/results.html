@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>{{ queryData.showing }} of {{ queryData.results }} results</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-list>
+    <ion-item *ngFor="let property of queryData.properties;" (click)="goToPropertyDetails(property)">
+      <ion-thumbnail item-left>
+        <img src="{{ property.thumb_url }}">
+      </ion-thumbnail>
+      <h1>{{ property.price_formatted }}</h1>
+      <p>{{ property.title }}</p>
+    </ion-item>
+
+    <ion-item (click)="getMoreProperties()" *ngIf="loadMore.canLoad">
+      <ion-spinner item-left *ngIf="loadMore.loading"></ion-spinner>
+      <h1>{{ loadMore.label }}</h1>
+      <p>Results for {{ queryData.searchTerm }}, showing {{ queryData.showing }} of {{ queryData.results }} properties</p>
+    </ion-item>
+  </ion-list>
+
+</ion-content>
